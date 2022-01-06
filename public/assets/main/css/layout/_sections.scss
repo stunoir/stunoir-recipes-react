@@ -1,0 +1,10 @@
+﻿.wrapper-section {
+	padding: 5rem 0;
+	animation-name: fadeIn;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+
+	&--white {
+		background-color: #fff;
+	}
+}

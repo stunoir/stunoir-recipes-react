@@ -1,0 +1,113 @@
+﻿/* --------------------------------- */
+/* ==== High Contrast Overrides ==== */
+/* --------------------------------- */
+html.access-colour-contrast {
+	background-color: #000 !important;
+
+	body {
+		background-color: #000 !important;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, span, li, td {
+		color: yellow !important;
+	}
+
+	*:not(.panel-movie-info) {
+		background-color: #000 !important;
+		color: yellow !important;
+	}
+
+	.grid-container, .grid-x, .cell {
+		background-color: transparent !important;
+	}
+
+	.wrapper-main, .card-movie, .section-results-info .block-pager .btn-page, .form-search {
+		border: 1px solid yellow;
+	}
+
+	.panel-movie-info {
+		.content {
+			background: #000;
+			border-left: 1px solid yellow;
+		}
+	}
+
+	.card-movie .img:after {
+		color: yellow;
+	}
+
+	.btn-access {
+		&.is-active {
+			border-bottom: 1px solid yellow;
+		}
+	}
+}
+
+
+/* --------------------------------- */
+/* ==== Sepia Contrast Overrides ==== */
+/* --------------------------------- */
+html.access-colour-sepia {
+	background-color: #cc9 !important;
+
+	body {
+		background-color: #cc9 !important;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, span, li, td {
+		color: #009 !important;
+	}
+
+	*:not(.panel-movie-info) {
+		background-color: #cc9 !important;
+		color: #009 !important;
+	}
+
+	.grid-container, .grid-x, .cell {
+		background-color: transparent !important;
+	}
+
+	.wrapper-main, .card-movie, .section-results-info .block-pager .btn-page, .form-search {
+		border: 1px solid #009;
+	}
+
+	.panel-movie-info {
+		.content {
+			background: #cc9;
+			border-left: 1px solid #009;
+		}
+	}
+
+	.card-movie .img:after {
+		color: #cc9;
+	}
+
+	.btn-access {
+		&.is-active {
+			border-bottom: 1px solid #009;
+		}
+	}
+}
+
+/* --------------------------------- */
+/* ==== Greyscale Overrides ==== */
+/* --------------------------------- */
+
+html.access-colour-greyscale {
+	-moz-filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+/* --------------------------------- */
+/* reduced animations */
+/* --------------------------------- */
+@media screen and (prefers-reduced-motion: reduce) {
+
+	* {
+		animation: none !important;
+		animation-duration: 0s !important;
+		animation-delay: 0s !important;
+	}
+
+}

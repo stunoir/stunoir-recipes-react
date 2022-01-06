@@ -1,0 +1,40 @@
+﻿/* Small only */
+@media screen and (max-width: 39.9375em) {
+
+	.card-recipe .img {
+		height: 200px;
+	}
+
+	.wrapper-hero {
+		padding: 2rem 0 3rem 0;
+
+		.hero-img {
+			height: 250px;
+		}
+
+		.content {
+			text-align: center;
+
+			.title {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.recipe-image {
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+
+	.menu.feature-skill-icons, .menu.menu-filters {
+		justify-content: flex-start;
+
+		.btn--filter {
+			margin-bottom: .5rem;
+		}
+	}
+}
+
+/*iphone x etc*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+}
