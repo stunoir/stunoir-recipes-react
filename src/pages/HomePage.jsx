@@ -1,6 +1,34 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
+import RecipeList from '../components/recipes/RecipeList'
+import Loader from '../components/UI/Loader'
 
 function HomePage() {
+  const API_ID = '9bfcdf83'
+  const API_KEY = 'bbd2def059267da91aa57a455093f912'
+  const API_URL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${API_ID}&app_key=${API_KEY}&q=salad&mealType=dinner&dishType=main%20course`
+
+  const [loading, setLoading] = useState(true)
+  const [recipes, setRecipes] = useState(null)
+
+  useEffect(() => {
+    getData(API_URL)
+    // eslint-disable-next-line
+  }, [])
+
+  const getData = (url) => {
+    Axios.get(API_URL)
+      .then((response) => {
+        setRecipes(response.data.hits)
+        setLoading(false)
+        console.log(response.data.hits)
+      })
+      .catch((error) => {
+        console.error('There was an error getting the recipes: ', error)
+      })
+  }
+
   return (
     <main id='maincontent'>
       <div className='wrapper-hero'>
@@ -47,126 +75,22 @@ function HomePage() {
       <div className='wrapper-section wrapper-section--white'>
         <div className='grid-container'>
           <div className='grid-x grid-padding-x'>
-            <div className='medium-12 cell'>
+            <div className='medium-6 cell'>
               <h2 className='section-title'>Popular recipes</h2>
               <div className='section-intro'>
-                <p>Build with React, SASS, and other ingredients...</p>
+                <p>Some of our popular salad recipes for meal time...</p>
               </div>
-              <br />
             </div>
-          </div>
-
-          <div className='grid-x grid-padding-x small-up-2 medium-up-2 large-up-4'>
-            <div className='cell'>
-              <a className='card-recipe' href='recipes-detail.html'>
-                <div
-                  className='img'
-                  style={{
-                    backgroundImage: 'url(https://www.edamam.com/web-img/d02/d02658b9ba5a802acf980c07720ce30c.jpg)',
-                  }}
-                ></div>
-                <div className='content'>
-                  <span className='title'>Vegan fry-up</span>
-                  <div className='grid-x grid-padding-x'>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>216</strong> calories
-                      </span>
-                    </div>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>16</strong> ingredients
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className='cell'>
-              <a className='card-recipe' href='recipes-detail.html'>
-                <div
-                  className='img'
-                  style={{
-                    backgroundImage: 'url(https://www.edamam.com/web-img/d02/d02658b9ba5a802acf980c07720ce30c.jpg)',
-                  }}
-                ></div>
-                <div className='content'>
-                  <span className='title'>Fully Loaded Vegan Baked Potato Soup Recipe</span>
-                  <div className='grid-x grid-padding-x'>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>216</strong> calories
-                      </span>
-                    </div>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>16</strong> ingredients
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className='cell'>
-              <a className='card-recipe' href='recipes-detail.html'>
-                <div
-                  className='img'
-                  style={{
-                    backgroundImage: 'url(https://www.edamam.com/web-img/d02/d02658b9ba5a802acf980c07720ce30c.jpg)',
-                  }}
-                ></div>
-                <div className='content'>
-                  <span className='title'>Vegan fry-up</span>
-                  <div className='grid-x grid-padding-x'>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>216</strong> calories
-                      </span>
-                    </div>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>16</strong> ingredients
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className='cell'>
-              <a className='card-recipe' href='recipes-detail.html'>
-                <div
-                  className='img'
-                  style={{
-                    backgroundImage: 'url(https://www.edamam.com/web-img/d02/d02658b9ba5a802acf980c07720ce30c.jpg)',
-                  }}
-                ></div>
-                <div className='content'>
-                  <span className='title'>Fully Loaded Vegan Baked Potato Soup Recipe</span>
-                  <div className='grid-x grid-padding-x'>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>216</strong> calories
-                      </span>
-                    </div>
-                    <div className='medium-6 cell'>
-                      <span className='meta'>
-                        <strong>16</strong> ingredients
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className='grid-x grid-padding-x'>
-            <div className='medium-12 cell'>
-              <br />
+            <div className='medium-6 text-right align-self-middle cell'>
               <Link to='/recipes' className='btn btn--primary'>
                 View more recipes
               </Link>
             </div>
           </div>
+          <br />
+
+          {/* LIST */}
+          {!loading ? <RecipeList count='4' recipes={recipes}></RecipeList> : <Loader />}
         </div>
       </div>
     </main>
