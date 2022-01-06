@@ -1,3 +1,5 @@
+import sideImage from '../../src/assets/img/layout/img-food.png'
+
 function ContactPage() {
   return (
     <main id='maincontent'>
@@ -20,7 +22,7 @@ function ContactPage() {
             </div>
             <div className='medium-6 large-7 text-center medium-text-right cell small-order-1 medium-order-2'>
               <div className='block-blob block-blob--tert'>
-                <img alt='Healthy salad bowl' className='hero-img' src='./assets/main/img/layout/img-food.png' />
+                <img alt='Healthy salad bowl' className='hero-img' src={sideImage} />
               </div>
             </div>
           </div>

@@ -112,4 +112,19 @@
 			}
 		}
 	}
+
+	&--loader {
+		.img {
+			background-color: #f8f8f8;
+
+			&:after {
+				content: none;
+			}
+		}
+
+		.title, .meta {
+			color: $col-brand-gray;
+			background-color: $col-brand-gray;
+		}
+	}
 }

@@ -1,3 +1,5 @@
+import sideImage from '../../src/assets/img/layout/img-pizza-2.png'
+
 function AboutPage() {
   return (
     <main id='maincontent'>
@@ -35,7 +37,7 @@ function AboutPage() {
             </div>
             <div className='medium-6 large-7 text-center medium-text-right cell small-order-1 medium-order-2'>
               <div className='block-blob block-blob--secondary'>
-                <img alt='Pizza slice' className='hero-img' src='./assets/main/img/layout/img-pizza-2.png' />
+                <img alt='Pizza slice' className='hero-img' src={sideImage} />
               </div>
             </div>
           </div>

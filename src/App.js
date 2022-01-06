@@ -1,4 +1,3 @@
-import './assets/css/main.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/UI/Header'
 import Footer from './components/UI/Footer'
@@ -7,6 +6,7 @@ import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import RecipesPage from './pages/RecipesPage'
 import RecipesDetailPage from './pages/RecipesDetailPage'
+import '../src/assets/css/main.min.css'
 
 function App() {
   return (

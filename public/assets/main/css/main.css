@@ -27,9 +27,6 @@ BG IMAGE HANDLER:
 body {
   background-color: #F8F8F8 !important; }
 
-.grid-container, hr {
-  max-width: 72rem; }
-
 @font-face {
   font-family: "icomoon";
   src: url("../icons/icomoon.ttf?dlzl4g") format("truetype"), url("../icons/icomoon.woff?dlzl4g") format("woff"), url("../icons/icomoon.svg?dlzl4g#icomoon") format("svg");
@@ -433,6 +430,13 @@ a {
     .card-recipe:hover .img:after, .card-recipe:focus .img:after {
       background-color: #E6005C;
       color: #fff; }
+  .card-recipe--loader .img {
+    background-color: #f8f8f8; }
+    .card-recipe--loader .img:after {
+      content: none; }
+  .card-recipe--loader .title, .card-recipe--loader .meta {
+    color: #F8F8F8;
+    background-color: #F8F8F8; }
 
 .recipe-image {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

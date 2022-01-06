@@ -1,3 +1,5 @@
+import logo from '../../../src/assets/img/layout/logo.png'
+
 function Footer() {
   return (
     <footer className='wrapper-footer'>
@@ -7,7 +9,7 @@ function Footer() {
             <p>&copy; 2022 Stunoir</p>
           </div>
           <div className='medium-2 small-4 text-right cell'>
-            <img alt='Food Site home' src='assets/main/img/layout/logo.png' />
+            <img alt='Food Site home' src={logo} />
           </div>
         </div>
       </div>

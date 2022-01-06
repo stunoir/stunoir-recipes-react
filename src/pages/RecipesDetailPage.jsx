@@ -33,10 +33,10 @@ function RecipesDetailPage() {
   }
 
   const getImage = (images) => {
-    if (images.REGULAR) {
-      return images.REGULAR.url
+    if (images.LARGE) {
+      return images.LARGE.url
     } else {
-      return './assets/main/img/layout/ph.png'
+      return '../assets/main/img/layout/ph.png'
     }
   }
 
@@ -64,7 +64,7 @@ function RecipesDetailPage() {
             </div>
             <div className='medium-12 cell'>
               <div className='grid-x grid-padding-x'>
-                <div className='medium-9 cell'>
+                <div className='medium-8 cell'>
                   <div className='card-feature'>
                     <div className='content'>
                       {!loading ? (
@@ -102,8 +102,25 @@ function RecipesDetailPage() {
                       )}
                     </div>
                   </div>
+
+                  {!loading && recipe.cautions.length ? (
+                    <>
+                      <div className='card-feature'>
+                        <div className='content'>
+                          <h3 className='title'>Cautions</h3>
+                          <ul className=''>
+                            {recipe.cautions.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    ''
+                  )}
                 </div>
-                <div className='medium-3 cell'>
+                <div className='medium-4 cell'>
                   {!loading ? (
                     <>
                       <img
@@ -124,26 +141,9 @@ function RecipesDetailPage() {
                           <h3 className='title'>
                             Preparation <span className='sicon-info_outline'></span>
                           </h3>
-                          <a className='btn btn--filter' href={`${recipe.url}`}>
-                            Find out how to prepare
+                          <a className='btn btn--primary' href={`${recipe.url}`}>
+                            Find out how to prepare at {recipe.source}
                           </a>
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    ''
-                  )}
-
-                  {!loading && recipe.cautions.length ? (
-                    <>
-                      <div className='card-feature'>
-                        <div className='content'>
-                          <h3 className='title'>Cautions</h3>
-                          <ul className=''>
-                            {recipe.cautions.map((item, i) => (
-                              <li key={i}>{item}</li>
-                            ))}
-                          </ul>
                         </div>
                       </div>
                     </>

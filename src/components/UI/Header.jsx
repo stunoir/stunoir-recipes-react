@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../../../src/assets/img/layout/logo.png'
 
 function Header() {
   return (
@@ -11,7 +12,7 @@ function Header() {
         <div className='grid-x grid-padding-x'>
           <div className='medium-3 small-5 align-self-middle cell'>
             <Link to='/'>
-              <img alt='Food Site home' src='assets/main/img/layout/logo.png' />
+              <img alt='Food Site home' src={logo} />
             </Link>
           </div>
           <div className='medium-6 small-7 align-self-middle cell'>
