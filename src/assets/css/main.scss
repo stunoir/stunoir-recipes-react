@@ -1,27 +1,16 @@
 ﻿@charset "UTF-8";
 
 //== 1. general configuration
-@import 'abstracts/_variables.scss', 
-	'abstracts/_functions.scss', 
-	'abstracts/_mixins.scss';
+@import 'abstracts/_variables.scss', 'abstracts/_functions.scss', 'abstracts/_mixins.scss';
 
 //== 2. base
-@import 'base/_base.scss', 
-	'base/_fonts.scss', 
-	'base/_typography.scss', 
-	'base/_helpers.scss', 
-	'base/_animations.scss';
+@import 'base/_base.scss', 'base/_fonts.scss', 'base/_typography.scss', 'base/_helpers.scss', 'base/_animations.scss';
 
 //== 3. layout
-@import 'layout/_header.scss', 
-	'layout/_footer.scss', 
-	'layout/_sections.scss';
+@import 'layout/_header.scss', 'layout/_footer.scss', 'layout/_sections.scss';
 
 //== 4. components
 @import 'components/_buttons.scss', 'components/_cards.scss', 'components/_recipe.scss';
 
 //== 5. media and amended sheets
-@import 'media/_media-small.scss', 
-	'media/_media-medium.scss', 
-	'media/_media-large.scss', 
-	'media/_accessibility.scss';
+@import 'media/_media-small.scss', 'media/_media-medium.scss', 'media/_media-large.scss', 'media/_accessibility.scss';

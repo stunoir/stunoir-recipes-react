@@ -35,6 +35,8 @@ function RecipesDetailPage() {
   const getImage = (images) => {
     if (images.LARGE) {
       return images.LARGE.url
+    } else if (images.REGULAR) {
+      return images.REGULAR.url
     } else {
       return '../assets/main/img/layout/ph.png'
     }
@@ -89,7 +91,7 @@ function RecipesDetailPage() {
                       {!loading && recipe.healthLabels.length ? (
                         <>
                           <h3 className='title'>
-                            Health Information <span className='sicon-set_meal'></span>
+                            Diet Information <span className='sicon-heart-o'></span>
                           </h3>
                           <ul className=''>
                             {recipe.healthLabels.slice(0, 4).map((item, i) => (
@@ -107,7 +109,9 @@ function RecipesDetailPage() {
                     <>
                       <div className='card-feature'>
                         <div className='content'>
-                          <h3 className='title'>Cautions</h3>
+                          <h3 className='title'>
+                            Allergy Information <span className='sicon-info_outline'></span>
+                          </h3>
                           <ul className=''>
                             {recipe.cautions.map((item, i) => (
                               <li key={i}>{item}</li>
@@ -139,10 +143,10 @@ function RecipesDetailPage() {
                       <div className='card-feature'>
                         <div className='content'>
                           <h3 className='title'>
-                            Preparation <span className='sicon-info_outline'></span>
+                            Preparation <span className='sicon-dinner_dining'></span>
                           </h3>
-                          <a className='btn btn--primary' href={`${recipe.url}`}>
-                            Find out how to prepare at {recipe.source}
+                          <a className='btn btn--primary btn--expanded' href={`${recipe.url}`}>
+                            How to prepare via {recipe.source}
                           </a>
                         </div>
                       </div>

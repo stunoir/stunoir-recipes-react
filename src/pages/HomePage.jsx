@@ -90,7 +90,7 @@ function HomePage() {
           <br />
 
           {/* LIST */}
-          {!loading ? <RecipeList count='4' recipes={recipes}></RecipeList> : <Loader />}
+          {!loading ? <RecipeList count='8' recipes={recipes}></RecipeList> : <Loader />}
         </div>
       </div>
     </main>
