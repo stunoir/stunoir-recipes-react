@@ -17,7 +17,7 @@ function RecipesPage() {
   }, [])
 
   const getData = (url) => {
-    Axios.get(API_URL)
+    Axios.get(url)
       .then((response) => {
         setRecipes(response.data.hits)
         setLoading(false)

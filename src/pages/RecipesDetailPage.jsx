@@ -1,94 +1,155 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import Axios from 'axios'
+
 function RecipesDetailPage() {
+  const API_ID = '9bfcdf83'
+  const API_KEY = 'bbd2def059267da91aa57a455093f912'
+
+  const [loading, setLoading] = useState(true)
+  const [recipe, setRecipe] = useState(null)
+
+  const params = useParams()
+
+  useEffect(() => {
+    if (params.recipeId) {
+      const API_URL = `https://api.edamam.com/api/recipes/v2/${params.recipeId}?type=public&app_id=${API_ID}&app_key=${API_KEY}&q=salad&mealType=dinner&dishType=main%20course`
+
+      getData(API_URL)
+    }
+    // eslint-disable-next-line
+  }, [])
+
+  const getData = (url) => {
+    Axios.get(url)
+      .then((response) => {
+        setRecipe(response.data.recipe)
+        setLoading(false)
+        console.log(response.data.recipe)
+      })
+      .catch((error) => {
+        console.error('There was an error getting the recipe: ', error)
+      })
+  }
+
+  const getImage = (images) => {
+    if (images.REGULAR) {
+      return images.REGULAR.url
+    } else {
+      return './assets/main/img/layout/ph.png'
+    }
+  }
+
   return (
     <main id='maincontent'>
       <div className='wrapper-section'>
         <div className='grid-container'>
           <div className='grid-x grid-padding-x'>
             <div className='medium-12 cell'>
-              <p className='section-subtitle'>Recipe</p>
-              <h1 className='section-title'>Fully Loaded Vegan Baked Potato Soup</h1>
-              <div className='section-intro'>
-                <p>
-                  See full recipe on: <a href='/'>Serious Eats</a>
-                </p>
-              </div>
+              {!loading ? (
+                <>
+                  <p className='section-subtitle'>Recipe</p>
+                  <h1 className='section-title'>{recipe.label}</h1>
+                  <div className='section-intro'>
+                    <p>{Math.floor(Number(recipe.calories))} Calories</p>
+                    <p className='hide'>
+                      See full recipe on: <a href={`${recipe.url}`}>{recipe.source}</a>
+                    </p>
+                  </div>
+                </>
+              ) : (
+                ''
+              )}
               <hr />
             </div>
             <div className='medium-12 cell'>
               <div className='grid-x grid-padding-x'>
-                <div className='medium-6 cell'>
+                <div className='medium-9 cell'>
                   <div className='card-feature'>
                     <div className='content'>
-                      <h2 className='title'>
-                        12 Ingredients <span className='sicon-restaurant'></span>
-                      </h2>
-                      <ul className=''>
-                        <li>1 head cauliflower, split in half</li>
-                        <li>2 large (or 3 medium) russet potatoes, about 1 1/4 pounds total</li>
-                        <li>3 tablespoons vegetable or canola oil</li>
-                        <li>3 tablespoons coconut or palm oil or vegetable shortening</li>
-                        <li>1 large leek, chopped</li>
-                        <li>2 stalks celery, finely chopped</li>
-                        <li>6 scallions, thinly sliced, white and green parts reserved separately</li>
-                        <li>4 medium cloves garlic, thinly sliced</li>
-                        <li>Kosher salt and freshly ground black pepper</li>
-                        <li>1 teaspoon paprika</li>
-                        <li>1 chipotle pepper packed in adobo sauce, finely chopped, plus 1 teaspoon adobo sauce</li>
-                        <li>1 cup roasted cashews</li>
-                        <li>1 quart almond or cashew milk</li>
-                        <li>1/2 teaspoon liquid smoke (optional)</li>
-                        <li>Up to 2 cups Hearty Vegetable Stock or water</li>
-                        <li>1 bunch minced fresh chives</li>
-                        <li>1 recipe chopped Crispy Vegan Mushroom "Bacon", for serving</li>
-                        <li>1 cup steamed broccoli florets, for serving</li>
-                        <li>Vegan sour cream, for serving (if desired)</li>
-                        <li>Extra-virgin olive oil, for serving</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className='medium-3 cell'>
-                  <div className='card-feature'>
-                    <div className='content'>
-                      <h3 className='title'>
-                        Preparation <span className='sicon-info_outline'></span>
-                      </h3>
-                      <a href='/' className='btn btn--filter'>
-                        View instructions
-                      </a>
+                      {!loading ? (
+                        <>
+                          <h2 className='title'>
+                            {recipe.ingredients.length} Ingredients <span className='sicon-restaurant'></span>
+                          </h2>
+                          <ul className=''>
+                            {recipe.ingredients.map((item, i) => (
+                              <li key={i}>{item.text}</li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        ''
+                      )}
                     </div>
                   </div>
 
                   <div className='card-feature'>
                     <div className='content'>
-                      <h3 className='title'>
-                        Nutrition <span className='sicon-dinner_dining'></span>
-                      </h3>
-                      <ul className=''>
-                        <li>213 calories</li>
-                        <li>15% daily value</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className='card-feature'>
-                    <div className='content'>
-                      <h3 className='title'>
-                        Categories <span className='sicon-set_meal'></span>
-                      </h3>
-                      <ul className=''>
-                        <li>Vegan</li>
-                        <li>Egg free</li>
-                      </ul>
+                      {!loading && recipe.healthLabels.length ? (
+                        <>
+                          <h3 className='title'>
+                            Health Information <span className='sicon-set_meal'></span>
+                          </h3>
+                          <ul className=''>
+                            {recipe.healthLabels.slice(0, 4).map((item, i) => (
+                              <li key={i}>{item.replace('-', ' ')}</li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        ''
+                      )}
                     </div>
                   </div>
                 </div>
                 <div className='medium-3 cell'>
-                  <img
-                    className='recipe-image'
-                    alt='Fully Loaded Vegan Baked Potato Soup'
-                    src='https://www.edamam.com/web-img/ba9/ba9150c5f482f19c407f74cbb6933049.jpg'
-                  />
+                  {!loading ? (
+                    <>
+                      <img
+                        className='recipe-image'
+                        alt='Fully Loaded Vegan Baked Potato Soup'
+                        src={`${getImage(recipe.images)}`}
+                      />
+                      <br />
+                      &nbsp;
+                    </>
+                  ) : (
+                    ''
+                  )}
+                  {!loading ? (
+                    <>
+                      <div className='card-feature'>
+                        <div className='content'>
+                          <h3 className='title'>
+                            Preparation <span className='sicon-info_outline'></span>
+                          </h3>
+                          <a className='btn btn--filter' href={`${recipe.url}`}>
+                            Find out how to prepare
+                          </a>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    ''
+                  )}
+
+                  {!loading && recipe.cautions.length ? (
+                    <>
+                      <div className='card-feature'>
+                        <div className='content'>
+                          <h3 className='title'>Cautions</h3>
+                          <ul className=''>
+                            {recipe.cautions.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
             </div>

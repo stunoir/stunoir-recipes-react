@@ -9,9 +9,14 @@ function RecipeCard({ details }) {
     }
   }
 
+  const getLink = (uri) => {
+    const linkStr = uri.replace('http://www.edamam.com/ontologies/edamam.owl#recipe_', '')
+    return linkStr
+  }
+
   return (
     <div className='cell'>
-      <Link className='card-recipe' to='/recipes/123'>
+      <Link className='card-recipe' to={`/recipes/${getLink(details.recipe.uri)}`}>
         <div
           className='img'
           style={{
