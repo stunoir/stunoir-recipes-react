@@ -22,7 +22,6 @@ function HomePage() {
       .then((response) => {
         setRecipes(response.data.hits)
         setLoading(false)
-        console.log(response.data.hits)
       })
       .catch((error) => {
         console.error('There was an error getting the recipes: ', error)

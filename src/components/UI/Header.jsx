@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../../../src/assets/img/layout/logo.png'
 
 function Header() {
@@ -19,13 +19,13 @@ function Header() {
             <nav>
               <ul className='nav-primary menu align-right show-for-large'>
                 <li>
-                  <Link to='/about'>About</Link>
+                  <NavLink to='/about'>About</NavLink>
                 </li>
                 <li>
-                  <Link to='/recipes'>Recipes</Link>
+                  <NavLink to='/recipes'>Recipes</NavLink>
                 </li>
                 <li>
-                  <Link to='/contact'>Contact</Link>
+                  <NavLink to='/contact'>Contact</NavLink>
                 </li>
               </ul>
             </nav>

@@ -113,21 +113,21 @@ a { color: #282828; }
 
 .wrapper-header .nav-primary li { padding: 0 1rem; }
 
-.wrapper-header .nav-primary a { color: #282828; font-weight: 600; border-bottom: 3px solid transparent; transition: border-bottom .3s; padding: 0.7rem 0; }
+.wrapper-header .nav-primary a { color: #282828; font-weight: 600; border-bottom: 3px solid transparent; transition: border-bottom 0.3s; padding: 0.7rem 0; }
 
 .wrapper-header .nav-primary a:hover, .wrapper-header .nav-primary a:focus { border-bottom: 3px solid #ffb3d1; }
 
-.wrapper-header .nav-primary a.is-active { border-bottom: 3px solid #E6005C; }
+.wrapper-header .nav-primary a.is-active, .wrapper-header .nav-primary a.active { border-bottom: 3px solid #E6005C; }
 
 .wrapper-header .form-search { display: flex; flex-direction: row; border: 1px solid #fff; border-radius: 2px; background-color: #fff; }
 
-.wrapper-header .form-search input { border: 1px solid transparent; background-color: transparent; box-shadow: none; margin-bottom: 0; color: #282828; font-size: .9rem; transition: background-color .3s; border-radius: 2px; }
+.wrapper-header .form-search input { border: 1px solid transparent; background-color: transparent; box-shadow: none; margin-bottom: 0; color: #282828; font-size: 0.9rem; transition: background-color 0.3s; border-radius: 2px; }
 
 .wrapper-header .form-search input:focus { background-color: #fff; color: #282828; }
 
-.wrapper-header .form-search .btn-search { width: 50px; text-align: center; cursor: pointer; transition: background-color .3s; border-radius: 2px; }
+.wrapper-header .form-search .btn-search { width: 50px; text-align: center; cursor: pointer; transition: background-color 0.3s; border-radius: 2px; }
 
-.wrapper-header .form-search .btn-search span { color: #282828; border-radius: 2px; transition: color .3s; font-weight: 600; }
+.wrapper-header .form-search .btn-search span { color: #282828; border-radius: 2px; transition: color 0.3s; font-weight: 600; }
 
 .wrapper-header .form-search .btn-search:hover, .wrapper-header .form-search .btn-search:focus { background-color: #282828; }
 
