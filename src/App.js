@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import RecipesPage from './pages/RecipesPage'
 import RecipesDetailPage from './pages/RecipesDetailPage'
+import NotFound from './pages/NotFound'
 import '../src/assets/css/main.min.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/recipes' element={<RecipesPage></RecipesPage>}></Route>
         <Route path='/recipes/search/:query' element={<RecipesPage></RecipesPage>}></Route>
         <Route path='/recipes/:recipeId' element={<RecipesDetailPage></RecipesDetailPage>}></Route>
+        <Route path='*' element={<NotFound></NotFound>} />
       </Routes>
       <Footer></Footer>
     </Router>
