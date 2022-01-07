@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import RecipeList from '../components/recipes/RecipeList'
 import Loader from '../components/UI/Loader'
+import sideImage from '../../src/assets/img/layout/img-fish.png'
 
 function HomePage() {
   const API_ID = '9bfcdf83'
@@ -64,7 +65,7 @@ function HomePage() {
             </div>
             <div className='medium-6 large-7 text-center medium-text-right cell small-order-1 medium-order-2'>
               <div className='block-blob'>
-                <img alt='Salmon salad dish' className='hero-img' src='./assets/main/img/layout/img-fish.png' />
+                <img alt='Salmon salad dish' className='hero-img' src={sideImage} />
               </div>
             </div>
           </div>

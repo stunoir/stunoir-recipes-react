@@ -61,7 +61,7 @@ function RecipesDetailPage() {
               <div className='medium-12 cell'>
                 <div className='grid-x grid-padding-x'>
                   <div className='medium-8 cell'>
-                    {recipe.ingredients.length ? (
+                    {recipe.ingredients.length && (
                       <div className='card-feature'>
                         <div className='content'>
                           <h2 className='title'>
@@ -74,11 +74,9 @@ function RecipesDetailPage() {
                           </ul>
                         </div>
                       </div>
-                    ) : (
-                      ''
                     )}
 
-                    {recipe.healthLabels.length ? (
+                    {recipe.healthLabels.length && (
                       <div className='card-feature'>
                         <div className='content'>
                           <h3 className='title'>
@@ -91,11 +89,9 @@ function RecipesDetailPage() {
                           </ul>
                         </div>
                       </div>
-                    ) : (
-                      ''
                     )}
 
-                    {recipe.cautions.length ? (
+                    {recipe.cautions.length && (
                       <div className='card-feature'>
                         <div className='content'>
                           <h3 className='title'>
@@ -108,8 +104,6 @@ function RecipesDetailPage() {
                           </ul>
                         </div>
                       </div>
-                    ) : (
-                      ''
                     )}
                   </div>
                   <div className='medium-4 cell'>
