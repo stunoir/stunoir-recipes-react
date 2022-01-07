@@ -8,6 +8,9 @@ function RecipesPage() {
   const [loading, setLoading] = useState(true)
   const [recipes, setRecipes] = useState(null)
   const [pageQuery, setPageQuery] = useState('')
+  const [next, setNext] = useState('')
+  const [prev, setPrev] = useState('')
+  const [page, setPage] = useState(1)
 
   const API_ID = '9bfcdf83'
   const API_KEY = 'bbd2def059267da91aa57a455093f912'
@@ -19,11 +22,17 @@ function RecipesPage() {
 
   const getData = (query) => {
     const url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${API_ID}&app_key=${API_KEY}&q=${query}&mealType=dinner&dishType=main%20course`
+    handleAxiosFetch(url)
+    setPrev(url)
+  }
 
+  const handleAxiosFetch = (url) => {
     Axios.get(url)
       .then((response) => {
         setRecipes(response.data.hits)
         setLoading(false)
+        setNext(response.data._links.next.href)
+        setPage(response.data.from)
       })
       .catch((error) => {
         console.error('There was an error getting the recipes: ', error)
@@ -32,6 +41,16 @@ function RecipesPage() {
 
   const handleSearch = () => {
     getData(pageQuery)
+  }
+
+  const handlePrev = (e) => {
+    handleAxiosFetch(prev)
+    e.currentTarget.blur()
+  }
+
+  const handleNext = (e) => {
+    handleAxiosFetch(next)
+    e.currentTarget.blur()
   }
 
   return (
@@ -82,11 +101,18 @@ function RecipesPage() {
           {!loading ? <RecipeList count='20' recipes={recipes}></RecipeList> : <Loader />}
 
           <div className='grid-x grid-padding-x'>
-            <div className='medium-12 text-center cell'>
-              <br />
-              <a href='/' className='btn btn--primary'>
-                View more recipes
-              </a>
+            <div className='medium-12 text-right cell'>
+              {prev !== '' && page !== 1 && (
+                <button onClick={handlePrev} className='btn btn--primary'>
+                  Prev
+                </button>
+              )}
+              &nbsp;
+              {next !== '' && (
+                <button onClick={handleNext} className='btn btn--primary'>
+                  Next
+                </button>
+              )}
             </div>
           </div>
         </div>
