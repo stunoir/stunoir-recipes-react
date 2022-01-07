@@ -81,7 +81,7 @@ function HomePage() {
                 <p>Some of our popular salad recipes for meal time...</p>
               </div>
             </div>
-            <div className='medium-6 text-right align-self-middle cell'>
+            <div className='medium-6 text-left medium-text-right align-self-middle cell'>
               <Link to='/recipes' className='btn btn--primary'>
                 View more recipes
               </Link>

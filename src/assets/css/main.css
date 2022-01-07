@@ -222,8 +222,9 @@ a { color: #282828; }
   .wrapper-hero .content { text-align: center; }
   .wrapper-hero .content .title { font-size: 2rem; }
   .recipe-image { width: 100%; margin-bottom: 2rem; }
-  .menu.feature-skill-icons, .menu.menu-filters { justify-content: flex-start; }
-  .menu.feature-skill-icons .btn--filter, .menu.menu-filters .btn--filter { margin-bottom: .5rem; } }
+  .menu.feature-skill-icons, .menu.menu-filters { justify-content: center; }
+  .menu.feature-skill-icons .btn--filter, .menu.menu-filters .btn--filter { margin-bottom: 0.5rem; }
+  .form-search { margin-bottom: 2rem; } }
 
 /*iphone x etc*/
 /* Medium and up */

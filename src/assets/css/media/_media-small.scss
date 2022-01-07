@@ -1,38 +1,42 @@
 ﻿/* Small only */
 @media screen and (max-width: 39.9375em) {
+  .card-recipe .img {
+    height: 200px;
+  }
 
-	.card-recipe .img {
-		height: 200px;
-	}
+  .wrapper-hero {
+    padding: 2rem 0 3rem 0;
 
-	.wrapper-hero {
-		padding: 2rem 0 3rem 0;
+    .hero-img {
+      height: 250px;
+    }
 
-		.hero-img {
-			height: 250px;
-		}
+    .content {
+      text-align: center;
 
-		.content {
-			text-align: center;
+      .title {
+        font-size: 2rem;
+      }
+    }
+  }
 
-			.title {
-				font-size: 2rem;
-			}
-		}
-	}
+  .recipe-image {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 
-	.recipe-image {
-		width: 100%;
-		margin-bottom: 2rem;
-	}
+  .menu.feature-skill-icons,
+  .menu.menu-filters {
+    justify-content: center;
 
-	.menu.feature-skill-icons, .menu.menu-filters {
-		justify-content: flex-start;
+    .btn--filter {
+      margin-bottom: 0.5rem;
+    }
+  }
 
-		.btn--filter {
-			margin-bottom: .5rem;
-		}
-	}
+  .form-search {
+    margin-bottom: 2rem;
+  }
 }
 
 /*iphone x etc*/
