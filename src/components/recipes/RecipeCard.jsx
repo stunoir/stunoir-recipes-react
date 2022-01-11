@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function RecipeCard({ details }) {
+function RecipeCard({ uri, images, label, calories, ingredients }) {
   const getImage = (images) => {
     if (images.REGULAR) {
       return images.REGULAR.url
@@ -16,24 +16,24 @@ function RecipeCard({ details }) {
 
   return (
     <div className='cell'>
-      <Link className='card-recipe' to={`/recipes/${getLink(details.recipe.uri)}`}>
+      <Link className='card-recipe' to={`/recipes/${getLink(uri)}`}>
         <div
           className='img'
           style={{
-            backgroundImage: `url(${getImage(details.recipe.images)})`,
+            backgroundImage: `url(${getImage(images)})`,
           }}
         ></div>
         <div className='content'>
-          <span className='title'>{details.recipe.label}</span>
+          <span className='title'>{label}</span>
           <div className='grid-x grid-padding-x'>
             <div className='medium-6 cell'>
               <span className='meta'>
-                <strong>{Math.floor(Number(details.recipe.calories))}</strong> cals
+                <strong>{Math.floor(Number(calories))}</strong> cals
               </span>
             </div>
             <div className='medium-6 cell'>
               <span className='meta'>
-                <strong>{details.recipe.ingredients.length}</strong> ingredients
+                <strong>{ingredients.length}</strong> ingredients
               </span>
             </div>
           </div>
